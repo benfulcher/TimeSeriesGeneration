@@ -1,13 +1,14 @@
-function s = MkSg_noise(distrbn,N,params)
+function s = MkSg_Noise(whatDistribution,N,params)
 % returns a noisy time series
 % Length N
-% Sampled from a given distribution distrbn
+% Sampled from a given distribution whatDistribution
 % with defining parameters params
+%-------------------------------------------------------------------------------
 
-if nargin<1 || isempty(distrbn)
-	distrbn = 'uniform';
+if nargin < 1 || isempty(whatDistribution)
+	whatDistribution = 'uniform';
 end
-if nargin<2 || isempty(N)
+if nargin < 2 || isempty(N)
 	N = 1000;
 end
 
@@ -15,7 +16,7 @@ end
 % Ben Fulcher 8/3/2010
 
 
-switch distrbn
+switch whatDistribution
 	case 'uniform'
 		s = rand(N,1);
 	case 'normal'

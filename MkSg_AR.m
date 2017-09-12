@@ -4,13 +4,13 @@ function s = MkSg_AR(N,params,eta)
 % Transient removed of length eta
 % with defining parameters params as a vector (i.e., also specifies order)
 
-if nargin<1 || isempty(N)
+if nargin < 1 || isempty(N)
 	N = 1000;
 end
-if nargin<2 || isempty(params)
+if nargin < 2 || isempty(params)
 	params = [0.1]; % AR(1) process with parameter 0.1
 end
-if nargin<3 || isempty(eta)
+if nargin < 3 || isempty(eta)
     eta = 100; % 100 time points removed from intial transient
 end
 
@@ -21,7 +21,7 @@ end
 % Make the noise term, eta
 % Gaussian distributed (this could be specified as an additional input to
 % make this code more general, and it could take that input from
-% MkSg_noise). You could even pass general signals in for the noise term 
+% MkSg_noise). You could even pass general signals in for the noise term
 % and treat this as a filter... In fact, I think you can do all this much
 % more elegantly using the filter command in MATLAB... But I'm lazy and
 % also enjoy making my own less efficient code.

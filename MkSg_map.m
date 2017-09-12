@@ -1,23 +1,24 @@
-function s = MkSg_map(mapname,N,s0,params,eta)
-% returns a time series obtained from given conservative map from the 
-% list of maps at the end of Sprott's book.
-% Output is a signal, s, that has as each column an output from a co-ordinate of the specified map
-% Ben Fulcher 8/3/2010 >> adapted from earlier Ben Fulcher code from February 2009
+function s = MkSg_Map(mapName,N,s0,params,eta)
+% returns a time series obtained from given conservative map from the
+% list of maps in Chaos and Time-Series Analysis by J. C. Sprott
+% Output is a signal, s, that has as each column an output from a coordinate of
+% the specified map
+%-------------------------------------------------------------------------------
 
 %% Set broad defaults
-if nargin<1 || isempty(mapname)
-	mapname = 'Chirikov'; % Henon map
+if nargin < 1 || isempty(mapName)
+	mapName = 'Chirikov'; % Henon map
 end
-if nargin<2 || isempty(N)
+if nargin < 2 || isempty(N)
 	N = 1000; % time series 1000 points long
 end
-if nargin<5 || isempty(eta)
+if nargin < 5 || isempty(eta)
 	eta = 500; % remove transient -- first 500 data points
 end
-	
+
 % Set other defaults within each specific map
 
-switch mapname
+switch mapName
 	%%% Sprott Conservative Maps
 	case 'Chirikov'
 		%% Chirikov (standard) map
@@ -44,7 +45,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Henonqm'
 		%% Henon area-preserving quadratic map
 		% Sprott conservative map
@@ -70,7 +71,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Arnold'
 		%% Arnold's cat map
 		% Sprott conservative map
@@ -95,7 +96,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Gingerbreadman'
 		%% Gingerbreadman map
 		% Sprott conservative map
@@ -160,7 +161,7 @@ switch mapname
 		z(1) = s0(3);
 		% < No Parameters >
 		% Simulate the map
-		for i=2:N+eta		
+		for i=2:N+eta
 		    x(i) = x(i-1)*y(i-1)-z(i-1);
 		    y(i) = x(i-1);
 		    z(i) = y(i-1);
@@ -171,7 +172,7 @@ switch mapname
 		z = z(1+eta:end);
 		% Package into signal output
 		s = [x,y,z];
-		
+
 %%% Sprott: Dissipative Maps
 	case 'Henon'
 		%% Henon map
@@ -198,7 +199,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Lozi'
 		%% Lozi map
 		% Sprott dissipative map
@@ -224,7 +225,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'DelayedLogistic'
 		%% Delayed logistic map
 		% Sprott dissipative map
@@ -277,7 +278,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Burgers'
 		%% Burgers map
 		% Sprott dissipative maps
@@ -329,7 +330,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'KaplanYorke'
 		%% Kaplan-Yorke map
 		% Sprott dissipative maps
@@ -381,7 +382,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Ikeda'
 		%% Ikeda map
 		% Sprott dissipative maps
@@ -410,7 +411,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'Sinai'
 		%% Sinai map
 		% Sprott dissipative maps
@@ -435,7 +436,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 	case 'PredatorPrey'
 		%% Discrete Predator-Prey Map
 		% Sprott dissipative maps
@@ -462,7 +463,7 @@ switch mapname
 		y = y(1+eta:end);
 		% Package into signal output
 		s = [x,y];
-		
+
 		%%% Autoregressive Maps
 	case 'FreitasStochasticSine'
 		%% Freitas stochastic sine map
@@ -470,10 +471,10 @@ switch mapname
 		% x_{n+1},0 = mu*sin(x_n) + Y_n*eta_n
 		% Y_n is Bernoulii: y=binornd(1,q,[]) q is the probability y=1
 		% eta is (cts) uniform random: eta=unifrnd(-b,b,[]) with magnitude b
-		% So when q=0, it's a sine map on a period-2 limit cycle, otherwise it 
+		% So when q=0, it's a sine map on a period-2 limit cycle, otherwise it
 		% occasionally gets kicked, perhaps to another limit cycle (there are two fixed
 		% points -- at -2 and at 2)
-		
+
 		% Set defaults
 		if nargin<3 || isempty(s0), s0 = unifrnd(-1,1,1); end % initial conditions
 		if nargin<4 || isempty(params), params = [2.4, 1, 0.1]; end % mu, b, q
@@ -505,7 +506,7 @@ switch mapname
 		% I have just used uniform random numbers for both a and b between -5 and 5,
 		% Getting a new value at each iteration, and with each interation receiving two occurances [1 2]
 		% initial condition is also uniform continuous random [-5 5]
-		
+
 		% Set defaults
 		if nargin<3 || isempty(s0), s0 = unifrnd(-5,5,1); end % initial conditions
 		if nargin<4 || isempty(params), params = [2, 1]; end % a, b
@@ -519,7 +520,7 @@ switch mapname
 		b = params(2);
 		% Simulate the map
         for i=2:N+eta
-            x(i) = a*u(i) + b*u(i-1)*(1-u(i));  
+            x(i) = a*u(i) + b*u(i-1)*(1-u(i));
         end
 		% Remove transient
 		x = x(1+eta:end);
@@ -565,7 +566,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'sine'
 		%% Sine Map
 		% Set defaults
@@ -583,7 +584,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'tent'
 		%% Tent Map
 		% Set defaults
@@ -601,7 +602,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'lincongen'
 		%% Linear Congruential Generator
 		% Set defaults
@@ -621,7 +622,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'cubic'
 		%% Cubic Map
 		% Set defaults
@@ -639,7 +640,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'rickerspopulation'
 		%% Ricker's Population Model
 		% Set defaults
@@ -657,7 +658,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'Gauss'
 		%% Gauss map
 		% Set defaults
@@ -672,7 +673,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'Cusp'
 		%% Cusp map
 		% Set defaults
@@ -690,7 +691,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'GaussWCM'
 		%% Gaussian white chaotic map
 		% Set defaults
@@ -725,7 +726,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		
+
 	case 'Spence'
 		%% Spence Map
 		% Set defaults
@@ -740,7 +741,7 @@ switch mapname
 		end
 		% Remove transient as signal to return
 		s = x(1+eta:end);
-		         
+
 	case 'Sinecircle'
 		%% Sine-circle Map
 		% Set defaults
