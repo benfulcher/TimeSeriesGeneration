@@ -1,7 +1,7 @@
 function dx = F_rossler(t,x,params)
 % Rössler attractor
 
-if nargin<3 || isempty(params)
+if nargin < 3 || isempty(params)
 	params = [0.2, 0.2, 5.7]; % [a, b, c]
 end
 
@@ -21,7 +21,6 @@ c = params(3);
 % period 5              a=0.4
 % period 3              a=0.411
 % ---- b=2;c=4;
-
 
 % Evaluate the function
 dx = zeros(3,1);

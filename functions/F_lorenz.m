@@ -2,7 +2,7 @@ function dy = F_lorenz(t,y,params)
 % params specifies [sigma, r, b]
 
 % Defaults
-if nargin<3 || isempty(params)
+if nargin < 3 || isempty(params)
 	params = [10, 28, 8/3];
 end
 

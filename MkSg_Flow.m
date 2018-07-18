@@ -3,14 +3,16 @@ function s = MkSg_Flow(flowName,N,L,s0,params,eta)
 % Output is a signal, s, that has as each column an output from a co-ordinate
 % of the specified flow
 %---INPUTS:
-% Specify the number of points (as N),
-% length scale (as L)
-% initial conditions (as s0)
-% params sets the parameter vector specific to each ODE.
-% eta sets the length of the transient (number of points)
+% --number of points in the time series (as N),
+% --time scale (as L)
+% --initial conditions (as s0)
+% --the parameter vector specific to each ODE (params)
+% --length of the transient, eta (number of points)
 %-------------------------------------------------------------------------------
 
-%% Set broad defaults
+%-------------------------------------------------------------------------------
+% PARSE INPUTS, set broad defaults
+%-------------------------------------------------------------------------------
 if nargin < 1 || isempty(flowName)
 	flowName = 'Lorenz'; % Lorenz attractor
 end
@@ -20,10 +22,10 @@ end
 if nargin < 6 || isempty(eta)
 	eta = 500; % remove transient -- first 500 data points
 end
-
 % Set evaluation/sensitivity options
 opts = odeset('reltol',10^-6,'abstol',10^-6);
 
+%-------------------------------------------------------------------------------
 % Other defaults are set for each specific dynamical system
 switch flowName
 	case 'Lorenz'
@@ -463,14 +465,16 @@ switch flowName
 end
 
 % Specify the time span
-tspan = [1 L+eta];
-% Solve
+tspan = [1,L+eta];
+
+%-------------------------------------------------------------------------------
+% Solve the ODE:
 fprintf(1,'Solving %s (ODE45)..........\n',flowName);
 tic
-sol = ode45(ode, tspan, s0, opts);
+sol = ode45(ode,tspan,s0,opts);
 fprintf(1,'Solving %s took %s\n',BF_thetime(toc));
 
-% Evaluate solution on a discrete grid of points, eliminating the transient
+% Evaluate solution on a discrete grid of N points, eliminating the transient
 t = linspace(1+eta, L+eta, N);
 s = deval(sol,t)';
 

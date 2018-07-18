@@ -25,8 +25,8 @@ switch mapName
 		% Sprott conservative map
 		% parameter is k
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = [0.1,6]; end
-		if nargin<4 || isempty(params), params = 1; end
+		if nargin < 3 || isempty(s0), s0 = [0.1,6]; end
+		if nargin < 4 || isempty(params), params = 1; end
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -51,8 +51,8 @@ switch mapName
 		% Sprott conservative map
 		% Parameter is alpha
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = [0.6,0.13]; end
-		if nargin<4 || isempty(params), params = acos(0.24); end
+		if nargin < 3 || isempty(s0), s0 = [0.6,0.13]; end
+		if nargin < 4 || isempty(params), params = acos(0.24); end
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -76,8 +76,8 @@ switch mapName
 		%% Arnold's cat map
 		% Sprott conservative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0,1/sqrt(2)]; end % normal initial conditions
-		if nargin<4 || isempty(params), params = 2; end % k=2, normal
+		if nargin < 3 || isempty(s0), s0=[0,1/sqrt(2)]; end % normal initial conditions
+		if nargin < 4 || isempty(params), params = 2; end % k=2, normal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -101,7 +101,7 @@ switch mapName
 		%% Gingerbreadman map
 		% Sprott conservative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.51,3.7]; end % initial conditions
+		if nargin < 3 || isempty(s0), s0=[0.51,3.7]; end % initial conditions
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -124,8 +124,8 @@ switch mapName
 		%% Chaotic web map
 		% Sprott conservative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0,2.98]; end % initial conditions
-		if nargin<4 || isempty(params), params = [pi/2, 1]; end % alpha = pi/2, k = 1
+		if nargin < 3 || isempty(s0), s0=[0,2.98]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [pi/2, 1]; end % alpha = pi/2, k = 1
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -150,7 +150,7 @@ switch mapName
 		%% Lorenz 3D chaotic map
 		% Sprott conservative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.5,0.51,-0.99]; end % initial conditions
+		if nargin < 3 || isempty(s0), s0=[0.5,0.51,-0.99]; end % initial conditions
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -178,8 +178,8 @@ switch mapName
 		%% Henon map
 		% Sprott dissipative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.1,0.8]; end % initial conditions
-		if nargin<4 || isempty(params), params = [1.4, 0.3]; end % a=1.4, b=0.3 (nominal)
+		if nargin < 3 || isempty(s0), s0=[0.1,0.8]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [1.4, 0.3]; end % a=1.4, b=0.3 (nominal)
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -204,8 +204,8 @@ switch mapName
 		%% Lozi map
 		% Sprott dissipative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[-0.2,0.1]; end % initial conditions
-		if nargin<4 || isempty(params), params = [1.7, 0.5]; end % a=1.4, b=0.3 (nominal)
+		if nargin < 3 || isempty(s0), s0=[-0.2,0.1]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [1.7, 0.5]; end % a=1.4, b=0.3 (nominal)
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -230,8 +230,8 @@ switch mapName
 		%% Delayed logistic map
 		% Sprott dissipative map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.001,0.001]; end % initial conditions
-		if nargin<4 || isempty(params), params = 2.27; end % A=2.27 (nominal)
+		if nargin < 3 || isempty(s0), s0=[0.001,0.001]; end % initial conditions
+		if nargin < 4 || isempty(params), params = 2.27; end % A=2.27 (nominal)
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -255,8 +255,8 @@ switch mapName
 		%% Tinkerbell map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.1,0.4]; end % initial conditions
-		if nargin<4 || isempty(params), params = [0.9, -0.6, 2, 0.5]; end % a,b,c,d -- all nominal
+		if nargin < 3 || isempty(s0), s0=[0.1,0.4]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [0.9, -0.6, 2, 0.5]; end % a,b,c,d -- all nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -283,8 +283,8 @@ switch mapName
 		%% Burgers map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[-0.2,0.1]; end % initial conditions
-		if nargin<4 || isempty(params), params = [0.75, 1.75]; end % a,b -- nominal
+		if nargin < 3 || isempty(s0), s0=[-0.2,0.1]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [0.75, 1.75]; end % a,b -- nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -309,8 +309,8 @@ switch mapName
 		%% Holmes Cubic map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[1.7,0]; end % initial conditions
-		if nargin<4 || isempty(params), params = [0.2, 2.77]; end % b,d -- nominal
+		if nargin < 3 || isempty(s0), s0=[1.7,0]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [0.2, 2.77]; end % b,d -- nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -335,8 +335,8 @@ switch mapName
 		%% Kaplan-Yorke map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[1/sqrt(2),-0.4]; end % initial conditions (usual)
-		if nargin<4 || isempty(params), params = [1.99999999, 0.2]; end % a,b -- nominal
+		if nargin < 3 || isempty(s0), s0=[1/sqrt(2),-0.4]; end % initial conditions (usual)
+		if nargin < 4 || isempty(params), params = [1.99999999, 0.2]; end % a,b -- nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -361,8 +361,8 @@ switch mapName
 		%% Dissipative Standard map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[1/sqrt(2),-0.4]; end % initial conditions (usual)
-		if nargin<4 || isempty(params), params = [0.1, 8.8]; end % b,k -- nominal
+		if nargin < 3 || isempty(s0), s0=[1/sqrt(2),-0.4]; end % initial conditions (usual)
+		if nargin < 4 || isempty(params), params = [0.1, 8.8]; end % b,k -- nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -387,8 +387,8 @@ switch mapName
 		%% Ikeda map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.05,0]; end % initial conditions
-		if nargin<4 || isempty(params), params = [6, 0.4, 1, 0.9]; end % alpha, beta, gamma, mu -- nominal
+		if nargin < 3 || isempty(s0), s0=[0.05,0]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [6, 0.4, 1, 0.9]; end % alpha, beta, gamma, mu -- nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -416,8 +416,8 @@ switch mapName
 		%% Sinai map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.5,0.5]; end % initial conditions
-		if nargin<4 || isempty(params), params = 0.10; end % delta
+		if nargin < 3 || isempty(s0), s0=[0.5,0.5]; end % initial conditions
+		if nargin < 4 || isempty(params), params = 0.10; end % delta
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -441,8 +441,8 @@ switch mapName
 		%% Discrete Predator-Prey Map
 		% Sprott dissipative maps
 		% Set defaults
-		if nargin<3 || isempty(s0), s0=[0.5,0.5]; end % initial conditions
-		if nargin<4 || isempty(params), params = [0.3, 1, 5]; end % r, K, alpha (normal)
+		if nargin < 3 || isempty(s0), s0=[0.5,0.5]; end % initial conditions
+		if nargin < 4 || isempty(params), params = [0.3, 1, 5]; end % r, K, alpha (normal)
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);
@@ -476,8 +476,8 @@ switch mapName
 		% points -- at -2 and at 2)
 
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = unifrnd(-1,1,1); end % initial conditions
-		if nargin<4 || isempty(params), params = [2.4, 1, 0.1]; end % mu, b, q
+		if nargin < 3 || isempty(s0), s0 = unifrnd(-1,1,1); end % initial conditions
+		if nargin < 4 || isempty(params), params = [2.4, 1, 0.1]; end % mu, b, q
 		% Parameters
 		mu = params(1); % amplitude of sine
 		b = params(2); % amplitude of noise
@@ -508,8 +508,8 @@ switch mapName
 		% initial condition is also uniform continuous random [-5 5]
 
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = unifrnd(-5,5,1); end % initial conditions
-		if nargin<4 || isempty(params), params = [2, 1]; end % a, b
+		if nargin < 3 || isempty(s0), s0 = unifrnd(-5,5,1); end % initial conditions
+		if nargin < 4 || isempty(params), params = [2, 1]; end % a, b
 		% Initialize
 		x = zeros(N+eta,1);
 		u = unifrnd(0,1,[N+eta 1]);
@@ -533,7 +533,7 @@ switch mapName
 		% x_{n+4},0 = sin(x_n+5) + sin(2x_{n+1},0+5) + sin(3x_{n+2},0+5) + sin(4x_{n+3},0+5)
 		% Not quite autoregressive... Nonlinear autoregressive maybe?
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = rand(4,1); end % initial conditions (4 of them)
+		if nargin < 3 || isempty(s0), s0 = rand(4,1); end % initial conditions (4 of them)
 		% Initialize
         x = zeros(N+eta,1);
 		% Initial conditions
@@ -552,8 +552,8 @@ switch mapName
 	case 'logistic'
 		%% Logistic Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % normal initial conditions
-		if nargin<4 || isempty(params), params = 4; end % A=4, chaos
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % normal initial conditions
+		if nargin < 4 || isempty(params), params = 4; end % A=4, chaos
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -570,8 +570,8 @@ switch mapName
 	case 'sine'
 		%% Sine Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
-		if nargin<4 || isempty(params), params = 1; end % A=1, chaos
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 4 || isempty(params), params = 1; end % A=1, chaos
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -588,8 +588,8 @@ switch mapName
 	case 'tent'
 		%% Tent Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 1/sqrt(2); end % normal initial conditions
-		if nargin<4 || isempty(params), params = 1.9999999; end % A=1.999999, chaos
+		if nargin < 3 || isempty(s0), s0 = 1/sqrt(2); end % normal initial conditions
+		if nargin < 4 || isempty(params), params = 1.9999999; end % A=1.999999, chaos
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -606,8 +606,8 @@ switch mapName
 	case 'lincongen'
 		%% Linear Congruential Generator
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
-		if nargin<4 || isempty(params), params = [7141, 54773, 259200]; end % [A,B,C] -- nominal
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 4 || isempty(params), params = [7141, 54773, 259200]; end % [A,B,C] -- nominal
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -626,8 +626,8 @@ switch mapName
 	case 'cubic'
 		%% Cubic Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
-		if nargin<4 || isempty(params), params = 2.6; end % A
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 4 || isempty(params), params = 2.6; end % A
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -644,8 +644,8 @@ switch mapName
 	case 'rickerspopulation'
 		%% Ricker's Population Model
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
-		if nargin<4 || isempty(params), params = 20; end % A
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 4 || isempty(params), params = 20; end % A
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -662,7 +662,7 @@ switch mapName
 	case 'Gauss'
 		%% Gauss map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -677,8 +677,8 @@ switch mapName
 	case 'Cusp'
 		%% Cusp map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
-		if nargin<4 || isempty(params), params = 1.95; end % A
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 4 || isempty(params), params = 1.95; end % A
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -695,7 +695,7 @@ switch mapName
 	case 'GaussWCM'
 		%% Gaussian white chaotic map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -711,8 +711,8 @@ switch mapName
 	case 'Pinchers'
 		%% Pinchers Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0; end % initial condition
-		if nargin<4 || isempty(params), params = [2, 0.5]; end % [s,c]
+		if nargin < 3 || isempty(s0), s0 = 0; end % initial condition
+		if nargin < 4 || isempty(params), params = [2, 0.5]; end % [s,c]
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -730,7 +730,7 @@ switch mapName
 	case 'Spence'
 		%% Spence Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0.1; end % initial condition
+		if nargin < 3 || isempty(s0), s0 = 0.1; end % initial condition
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -745,8 +745,8 @@ switch mapName
 	case 'Sinecircle'
 		%% Sine-circle Map
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = 0; end % initial condition
-		if nargin<4 || isempty(params), params = [2.1, 0.44]; end % [K, Omega]
+		if nargin < 3 || isempty(s0), s0 = 0; end % initial condition
+		if nargin < 4 || isempty(params), params = [2.1, 0.44]; end % [K, Omega]
 		% Initialize
 		x = zeros(N+eta,1);
 		% Initial conditions
@@ -767,7 +767,7 @@ switch mapName
 		% Not sure where I got this map from. It's probably mentioned in Sprott.
 		% Can't get it to do anything interesting
 		% Set defaults
-		if nargin<3 || isempty(s0), s0 = [0.1, 0.1]; end % initial condition
+		if nargin < 3 || isempty(s0), s0 = [0.1, 0.1]; end % initial condition
 		% Initialize
 		x = zeros(N+eta,1);
 		y = zeros(N+eta,1);

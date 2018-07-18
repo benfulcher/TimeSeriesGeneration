@@ -1,7 +1,7 @@
 function dx = F_henonheiles(t,x)
 % Hénon-Heiles system
 
-dx=zeros(4,1);
+dx = zeros(4,1);
 
 dx(1) = x(3);
 dx(2) = x(4);
