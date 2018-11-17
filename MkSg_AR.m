@@ -37,7 +37,7 @@ order = length(params);
 x(1:order) = rand(order,1);
 
 for i=order+1:N+eta
-    x(i) = params.*x(i-order:i-1) + noise(i);
+    x(i) = params'*x(i-order:i-1) + noise(i);
 end
 
 s = x(eta+1:end);
