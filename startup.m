@@ -6,3 +6,4 @@ paths = arrayfun(@(x)fullfile(directories(x).folder,directories(x).name),1:lengt
 for j = 1:length(paths)
     addpath(genpath(paths{j}))
 end
+addpath('.');

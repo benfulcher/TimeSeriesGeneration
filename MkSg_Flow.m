@@ -290,6 +290,13 @@ switch flowName
 		if nargin < 4 || isempty(s0), s0 = [0.2; -2]; end
 		ode = @(t,y) F_duffvdp(t,y,params); % Specify the ODE
 
+	case 'vdp'
+		%% van der Pol oscillator (non chaotic)
+		if nargin < 2 || isempty(N), N = 4000; end
+		if nargin < 3 || isempty(L), L = round(N/6); end
+		if nargin < 4 || isempty(s0), s0 = [1; 1]; end
+		ode = @(t,y) F_vdp(t,y,params); % Specify the ODE
+
 	case 'Rayduff'
 		%% Rayleigh-Duffing oscillator
 		% Sprott's dissipative flows

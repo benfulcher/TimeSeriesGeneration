@@ -7,3 +7,7 @@ Basic support for:
 * Uncorrelated random noise (from a given distribution), `MkSg_Noise`
 * Self-affine processes, `MkSg_SelfAffine`
 * Noisy sinusoids, `MkSg_Sine`
+
+## generation of HCTSA files for different systems with continuously varying parameters
+
+`runScript.m` 
