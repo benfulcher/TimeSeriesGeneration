@@ -1,5 +1,5 @@
 function s = MkSg_Noise(whatDistribution,N,params)
-% returns a noisy time series
+% Returns a noisy time series
 % Length N
 % Sampled from a given distribution whatDistribution
 % with defining parameters params
@@ -11,10 +11,7 @@ end
 if nargin < 2 || isempty(N)
 	N = 1000;
 end
-
-% Part of the Make_Signal package
-% Ben Fulcher 8/3/2010
-
+%-------------------------------------------------------------------------------
 
 switch whatDistribution
 	case 'uniform'
