@@ -1,5 +1,8 @@
 # TimeSeriesGeneration
-Matlab code for generating time series different types of dynamical systems.
+
+[![DOI](https://zenodo.org/badge/102444874.svg)](https://zenodo.org/badge/latestdoi/102444874)
+
+Matlab code for generating time series from different types of generative model systems.
 
 Basic support for:
 * Autoregressive processes: `MkSg_AR`
