@@ -277,15 +277,15 @@ function createDataAndHCTSAMat(config)
 
         % do HCTSA work--------------------------------------------------------
 
-        TS_init('INP_test.mat');
+        TS_Init('INP_test.mat');
 
         % remove stochastic, pos-only, length dependent features
-        TS_local_clear_remove('ops',[ ...
+        TS_LocalClearRemove('raw', 'ops',[ ...
             % TS_getIDs('tisean','raw','ops'), ...
             % TS_getIDs('locdep','raw','ops'), ...
             % TS_getIDs('posOnly','raw','ops'), ...
-            TS_getIDs('stochastic','raw','ops')],1,'raw');
-
+            TS_GetIDs('stochastic','raw','ops')],1);
+            
         %go back to main dir---------------------------------------------------
         chdir(workingDir);
         
